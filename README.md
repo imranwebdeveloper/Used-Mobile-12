@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-[Used |Mobile](https://used-mobile-2c39e.web.app) is a Full Stack (MERN) web application that reused mobile seller
+[Used |Mobile](https://used-mobile-2c39e.web.app) is a Full Stack (MERN) web application that sell and buy reused mobile.
 
 Live Link : https://used-mobile-2c39e.web.app
 
@@ -34,7 +34,7 @@ Live Link : https://used-mobile-2c39e.web.app
 - Role base authentication dashboard
 - Admin can verify, delete seller and buyer
 - seller can add, remove, advertise and see products
-- User can login, register, booked, add wishlist and buy products with CarD
+- User can login, register, booked, add wishlist and buy products with Card
 - Firebase authentication with google and email
 - Responsive Design & clean code
 
