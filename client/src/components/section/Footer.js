@@ -5,7 +5,7 @@ import img from "../../assets/imgs/favicon.png";
 
 const Footer = () => {
   return (
-    <footer className="text-center lg:text-left bg-gray-100 text-gray-600">
+    <footer className="text-center lg:text-left ">
       <Container maxWidth="lg">
         <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-300">
           <div className="mr-12 hidden lg:block">
@@ -127,8 +127,6 @@ const Footer = () => {
                 <Typography
                   variant="h6"
                   noWrap
-                  component="a"
-                  href="/"
                   sx={{
                     mr: 2,
                     display: { xs: "none", md: "flex" },

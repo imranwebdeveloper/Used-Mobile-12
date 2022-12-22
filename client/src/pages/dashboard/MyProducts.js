@@ -10,8 +10,28 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import Spinner from "../../components/common/Spinner";
+import { useEffect, useState } from "react";
 
 const MyProducts = () => {
+  // const [products, setProducts] = useState([]);
+  // const [loading, setLoading] = useState(true);
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem("usedMobileToken");
+  //   setLoading(true);
+  //   fetch("https://server-imranwebdeveloper.vercel.app/my-products", {
+  //     headers: {
+  //       authorization: `bearer ${token}`,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //       setLoading(false);
+  //     })
+  //     .catch((err) => console.log(err.message));
+  // }, []);
+
   const {
     data: products = [],
     isLoading,
@@ -67,26 +87,27 @@ const MyProducts = () => {
       <Typography variant="h4" fontWeight={"bold"} mb={2} gutterBottom>
         My Products
       </Typography>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
-          <TableHead>
-            <TableRow>
-              <TableCell> Product Name </TableCell>
-              <TableCell align="center">Price</TableCell>
-              <TableCell align="center">Status</TableCell>
-              <TableCell align="center">Ads Status</TableCell>
-              <TableCell align="center">Actions</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {isLoading ? (
+
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <TableContainer component={Paper}>
+          <Table
+            sx={{ minWidth: 650 }}
+            size="medium"
+            aria-label="a dense table"
+          >
+            <TableHead>
               <TableRow>
-                <TableCell>
-                  <Spinner />
-                </TableCell>
+                <TableCell> Product Name </TableCell>
+                <TableCell align="center">Price</TableCell>
+                <TableCell align="center">Status</TableCell>
+                <TableCell align="center">Ads Status</TableCell>
+                <TableCell align="center">Actions</TableCell>
               </TableRow>
-            ) : (
-              products.products.map((product) => (
+            </TableHead>
+            <TableBody>
+              {products.products.map((product) => (
                 <TableRow
                   key={product._id}
                   sx={{
@@ -129,11 +150,11 @@ const MyProducts = () => {
                     </Button>
                   </TableCell>
                 </TableRow>
-              ))
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </div>
   );
 };

@@ -8,7 +8,6 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Button, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-
 import { useQuery } from "@tanstack/react-query";
 import Spinner from "../../components/common/Spinner";
 import toast from "react-hot-toast";

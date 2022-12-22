@@ -33,6 +33,9 @@ const Products = () => {
   }, [location]);
 
   const handleWishlist = (item) => {
+    if (!user) {
+      return toast.error("Please Login First");
+    }
     const brandName = `${item.brand} ${item.model} ${item.editions}`;
     const img = item.imgUrl;
     const price = item.price;
@@ -68,8 +71,12 @@ const Products = () => {
   };
 
   const handleBooked = (item) => {
-    setBooked(item);
-    handleOpen();
+    if (user) {
+      setBooked(item);
+      handleOpen();
+    } else {
+      toast.error("Please Login First");
+    }
   };
 
   return (
@@ -136,7 +143,9 @@ const Products = () => {
             );
           })
         )}
-        <BasicModal data={booked} open={open} handleClose={handleClose} />
+        {user && (
+          <BasicModal open={open} handleClose={handleClose} data={booked} />
+        )}
       </div>
     </Section>
   );

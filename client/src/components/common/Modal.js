@@ -18,12 +18,13 @@ const style = {
 
 export default function BasicModal({ open, handleClose, data }) {
   const { user } = useContext(AuthContext);
+  const { brand, model, editions, price } = data;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const locations = event.target.locations.value;
     const phone = event.target.phone.value;
-    const brandName = `${data.brand} ${data.model} ${data.editions}`;
+    const brandName = `${brand} ${model} ${editions}`;
     const img = data.imgUrl;
     const price = data.price;
     const email = user.email;
@@ -105,7 +106,7 @@ export default function BasicModal({ open, handleClose, data }) {
                     disabled
                     required
                     name="productName"
-                    defaultValue={`${data.brand} ${data.model}`}
+                    defaultValue={`${brand} ${model}`}
                   />
                 </Grid>
                 <Grid item xs={6}>
@@ -117,7 +118,7 @@ export default function BasicModal({ open, handleClose, data }) {
                     disabled
                     required
                     name="price"
-                    defaultValue={data.price}
+                    defaultValue={price}
                   />
                 </Grid>
                 <Grid item xs={6}>

@@ -7,10 +7,12 @@ import Spinner from "../components/common/Spinner";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import Slider from "../components/common/Slider";
 import Additional from "../components/common/Additional";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   useTitle("Home");
   const { setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const options = {
@@ -51,8 +53,9 @@ const Home = () => {
                 data.products.map((item) => {
                   return (
                     <div
-                      className="md:flex justify-between  gap-4 shadow border"
+                      className="md:flex justify-between  gap-4 shadow border cursor-pointer hover:shadow-md"
                       key={item._id}
+                      onClick={() => navigate("/working")}
                     >
                       <div className="  max-w-[180px]   flex items-center justify-center px-2 ">
                         <img

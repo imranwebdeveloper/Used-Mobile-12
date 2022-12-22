@@ -9,14 +9,10 @@ const MenuLink = ({ user, handleCloseNavMenu, handleLogout }) => {
       {user.role === "seller" && (
         <>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/my-products">
-              <Typography textAlign="center">My Product</Typography>
-            </Link>
+            <Link to="/dashboard/my-products">My Product</Link>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/add-product">
-              <Typography textAlign="center"> Add Product</Typography>
-            </Link>
+            <Link to="/dashboard/add-product">Add Product</Link>
           </MenuItem>
         </>
       )}
@@ -24,14 +20,10 @@ const MenuLink = ({ user, handleCloseNavMenu, handleLogout }) => {
       {user.role === "buyer" && (
         <>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/my-orders">
-              <Typography textAlign="center">My Orders</Typography>
-            </Link>
+            <Link to="/dashboard/my-orders">My Orders</Link>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/my-wishList">
-              <Typography textAlign="center">My Wishlist</Typography>
-            </Link>
+            <Link to="/dashboard/my-wishList">My Wishlist</Link>
           </MenuItem>
         </>
       )}
@@ -39,24 +31,14 @@ const MenuLink = ({ user, handleCloseNavMenu, handleLogout }) => {
       {user.role === "admin" && (
         <>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/all-sellers">
-              <Typography textAlign="center">All Sellers</Typography>
-            </Link>
+            <Link to="/dashboard/all-sellers">All Sellers</Link>
           </MenuItem>
           <MenuItem onClick={handleCloseNavMenu}>
-            <Link to="/dashboard/all-buyers">
-              <Typography textAlign="center">All Buyers</Typography>
-            </Link>
+            <Link to="/dashboard/all-buyers">All Buyers</Link>
           </MenuItem>
         </>
       )}
-      <MenuItem onClick={handleCloseNavMenu}>
-        <MenuItem onClick={handleCloseNavMenu}>
-          <Link to="/blog">
-            <Typography textAlign="center"> Blog</Typography>
-          </Link>
-        </MenuItem>
-      </MenuItem>
+
       <MenuItem onClick={handleLogout}>
         <Typography textAlign="center">Logout</Typography>
       </MenuItem>

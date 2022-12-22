@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Dashboard from "../layouts/Dashboard";
 import Main from "../layouts/Main";
-import Blog from "../pages/Blog";
 import Checkout from "../pages/Checkout";
 import AddProduct from "../pages/dashboard/AddProduct";
 import AllBuyers from "../pages/dashboard/AllBuyers";
@@ -14,6 +13,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Products from "../pages/Products";
 import Register from "../pages/Register";
+import Working from "../pages/Working";
 import Protect from "./Protect";
 
 const router = createBrowserRouter([
@@ -24,14 +24,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "blog", element: <Blog /> },
+      { path: "working", element: <Working /> },
       {
         path: "category/:id",
-        element: (
-          <Protect>
-            <Products />
-          </Protect>
-        ),
+        element: <Products />,
       },
       {
         path: "pay/:id",

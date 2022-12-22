@@ -14,6 +14,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContextProvider";
 import { useNavigate } from "react-router-dom";
 import loginUser from "../utils/loginUser";
+import Spinner from "../components/common/Spinner";
+import { async } from "@firebase/util";
 
 const Login = () => {
   const { setUser, googleAuthHandler } = useContext(AuthContext);
@@ -29,8 +31,9 @@ const Login = () => {
       .catch((err) => setError(err.message));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
     const userInfo = {
       email: data.get("email"),
@@ -55,6 +58,7 @@ const Login = () => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
@@ -101,7 +105,10 @@ const Login = () => {
           <Grid container>
             <Grid item>
               <p>
-                Don't have an account? <Link to="/register">Sign Up</Link>
+                Don't have an account?{" "}
+                <Link to="/register" className="text-blue-700">
+                  Sign Up
+                </Link>
               </p>
             </Grid>
           </Grid>

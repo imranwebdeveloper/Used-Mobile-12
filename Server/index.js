@@ -149,15 +149,18 @@ app.post("/login", async (req, res) => {
 
 // sellers routes
 app.get("/my-products", verifyUser, async (req, res) => {
-  const user = req.decoded;
-  const products = await productsCollection
-    .find({ email: user.email })
-    .toArray();
-  res.send({ status: true, message: "success", products });
+  try {
+    const user = req.decoded;
+    const products = await productsCollection
+      .find({ email: user.email })
+      .toArray();
+    res.send({ status: true, message: "success", products });
+  } catch (error) {
+    res.send({ status: false, message: "Server error", error });
+  }
 });
 app.get("/products/advertise", async (req, res) => {
   const filter = { isAdvertised: true, isSold: false };
-
   const products = await productsCollection.find(filter).toArray();
   if (!products) {
     return res
@@ -286,7 +289,8 @@ app.post("/add-wishlist", async (req, res) => {
 });
 
 // Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server listening on port " + process.env.PORT);
+const custom = 5001;
+app.listen(process.env.PORT | custom, () => {
+  console.log("Server listening on port " + custom);
   connectDB();
 });

@@ -44,15 +44,12 @@ function Header() {
             <Typography
               variant="h6"
               noWrap
-              component="a"
-              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 color: "inherit",
                 textDecoration: "none",
-                // fontSize: "2rem",
                 fontWeight: "bold",
               }}
             >
@@ -98,16 +95,10 @@ function Header() {
               )}
             </Menu>
           </Box>
-          {/* <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} /> */}
-          <div className="md:hidden mr-1">
-            <img src={img} alt="" className="w-6 h-6" />
-          </div>
 
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -123,6 +114,9 @@ function Header() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {/* Menu Link  */}
+            <MenuItem onClick={handleCloseNavMenu}>
+              <Link to="/">Home</Link>
+            </MenuItem>
             {user && (
               <MenuLink
                 user={user}
